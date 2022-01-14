@@ -9,6 +9,7 @@ const {
 } = require("@solana/web3.js");
 
 const newPair = new Keypair();
+console.log(newPair);
 
 const publicKey = new PublicKey(newPair._keypair.publicKey).toString();
 
@@ -44,3 +45,10 @@ const airDropSol = async () => {
     console.log(err);
   }
 };
+
+const driverFunction = async () => {
+  await getWalletBalance();
+  await airDropSol();
+  await getWalletBalance();
+};
+driverFunction();
